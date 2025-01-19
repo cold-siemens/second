@@ -103,8 +103,9 @@ const (
 func WalkingSpentCalories(action int, duration, weight, height float64) float64 {
 	// ваш код здесь
 	speedMs := meanSpeed(action, duration) * kmhInMsec
+	heightH := height / cmInM
 	//Расчет калорий по формуле
-	calories := (walkingCaloriesWeightMultiplier*weight + (math.Pow(speedMs, 2)/height)*walkingSpeedHeightMultiplier*weight) * duration * minInH
+	calories := (walkingCaloriesWeightMultiplier*weight + (math.Pow(speedMs, 2)/heightH)*walkingSpeedHeightMultiplier*weight) * duration * minInH
 	return calories
 }
 
